@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Node JS prototype Application</title>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="jQuery.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="script.js"></script>
+</head>
+<body>
+<h2 id="username" align="center">
+	
+</h2>
+<button id="disconnect-button" style="display: none;" onclick="disconnect()">Disconnect</button>
+<div id="add-user">
+	<input type="text" name="username">
+	<button onclick="addUser()">Connect</button>
+</div>
+<div id="input-box" style="display: none;">
+	<textarea id="message" onkeydown="check(event, this)"></textarea>
+	<button onclick="sendMessage()">Send</button>
+</div>
+<div id="chat-container">
+	
+</div>
+<div class="available-users">
+	
+</div>
+<script type="text/javascript">
+</script>
+</body>
+</html>
