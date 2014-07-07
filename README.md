@@ -18,20 +18,8 @@ Say location is `d:\chat-application`
 After you have downloaded the applicaton to location, use it as follows.
 
 1. Open cmd.
-2. Change directory to the location
-
-```powershell
-  cd d:\chat-application
-```
-
-3. Enter the command,
-
-```powershell
-        node index.js
-```
-Here the name of the main file is index.js
-  
-
+2. Change directory to the location `cd d:\chat-application`
+3. Enter the command, `node index.js` here the name of the main file is index.js,
 4. If you are on windows you should see something 
         like, `debug: socket.io` started
   or nothing on linux but not any linux showing that node script is running fine.
