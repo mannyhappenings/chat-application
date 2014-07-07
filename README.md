@@ -8,7 +8,7 @@ It's still in development.
 
 ### Downloading the node interpreter...
 To run this on your local computer, you will need a node script interpreter.
-You can download and install node from here [http://nodejs.org/download/](Download node)
+You can download and install node from here [Download Node interpreter](http://nodejs.org/download/)
 
 ### Downloading the project
 Download this project in zip format and extract it to a location on your computer
