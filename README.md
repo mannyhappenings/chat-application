@@ -24,7 +24,7 @@ After you have downloaded the applicaton to location, use it as follows.
         like, `debug: socket.io` started
   or nothing on linux but not any linux showing that node script is running fine.
 5. Open your browser, Open the page
-        [http://localhost:8080]
+        http://localhost:8080
 6. Enter a name.
 7. There you go. you're connected my friend. and just wait for some to connect to your computer.
   Oh wait, most probably other people don't know that there is a chat-server running on your computer.
