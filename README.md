@@ -10,19 +10,26 @@ To run this on your local computer, you will need a node script interpreter.
 You can download and install node from here http://nodejs.org/download/
 
 Download this project and save to a location on your computer
-Say location is d:/chat-application
+Say location is 
+
+```
+d:/chat-application
+```
 
 After you have downloaded the applicaton to location, use it as follows.
 
 1. Open cmd.
 2. Change directory to the location.
-3. Enter the command, 
+3. Enter the command,
+
+```powershell
         node index.js
+```
 
 4. If you are on windows you should see something 
         like, debug: socket.io started
   or nothing on linux but not any linux showing that node script is running fine.
-5. Open your browser, Open the page 
+5. Open your browser, Open the page
         http://localhost:8080
 6. Enter a name.
 7. There you go. you're connected my friend. and just wait for some to connect to your computer.
