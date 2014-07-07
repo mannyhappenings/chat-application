@@ -29,7 +29,9 @@ After you have downloaded the applicaton to location, use it as follows.
 ```powershell
         node index.js
 ```
-  Here the name of the main file is index.js
+Here the name of the main file is index.js
+  
+
 4. If you are on windows you should see something 
         like, `debug: socket.io` started
   or nothing on linux but not any linux showing that node script is running fine.
