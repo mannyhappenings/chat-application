@@ -6,15 +6,15 @@ A chat application using node and socket.io
 This chat application is a demonstration of a facebook like chat-application ui.
 It's still in development.
 
-## Downloading the node interpreter...
+### Downloading the node interpreter...
 To run this on your local computer, you will need a node script interpreter.
 You can download and install node from here [http://nodejs.org/download/](Download node)
 
-## Downloading the project
+### Downloading the project
 Download this project in zip format and extract it to a location on your computer
 Say location is `d:\chat-application`
 
-## Setup and Usage
+### Setup and Usage
 After you have downloaded the applicaton to location, use it as follows.
 
 1. Open cmd.
