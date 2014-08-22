@@ -41,6 +41,7 @@ io.on('connection', function (socket) {
 			console.log("Adding one user, " + data.username);
 			users[data.username] = socket.id;
 			users.length = users.length + 1;
+			socket.emit('add-success', data.username);
 			socket.broadcast.emit('new user alert', data);
 			var userList = [];
 			for(var x in users){
@@ -50,7 +51,8 @@ io.on('connection', function (socket) {
 			socket.emit('user-list', userList);
 			clog(users);
 		} else {
-			users[data.username] = socket.id;
+			socket.emit('user-exists', {username: data.username});
+/*			users[data.username] = socket.id;
 			console.log(users);
 			var userList = [];
 			for(var x in users){
@@ -59,12 +61,16 @@ io.on('connection', function (socket) {
 			}
 			socket.broadcast.emit('new user alert', data);
 			socket.emit('user-list', userList);
+*/
 		}
 	});
 	socket.on('dis-connect', function(data){
 		console.log(data);
 		if(!data.username){
 			console.log("No user to disconnect, rather disconneting the socket.");
+		} else if(!users[data.username]){
+			console.log("Requested user isn't on chat.");
+			socket.emit('announcement', {message: "Requested user isn't on chat."});
 		} else {
 			console.log("Disconnecting user, " + data.username);
 			socket.broadcast.emit('dis-connect', data);

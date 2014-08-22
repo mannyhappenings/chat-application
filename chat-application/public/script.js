@@ -18,6 +18,24 @@ socket.on('user-list', function(data){
 		}
 	}
 });
+function dec2hex(num){
+	var hex = "";
+	function getHexCode(n){
+		if(n<10) return n;
+		return String.fromCharCode(n-10 + 97);
+	}
+	while(num){
+		hex += getHexCode(num%16);
+		num = Math.floor(num/16);
+	}
+	return hex;
+}
+socket.on('user-exists', function(data){
+	alertFade(data.username + " already on chat. For example, " + data.username + "-" + dec2hex(Math.floor(Math.random()*1000000)));
+});
+socket.on('announcement', function(data){
+	alert(data.message);
+});
 socket.on('new user alert', function (data) {
 	alertFade(data.username + " has entered the chatroom.");
 	if(!users[data.username]) {
@@ -31,9 +49,19 @@ socket.on('users', function(data){
 socket.on("dis-connect", function(data){
 	console.log(data);
 	closeChat(data.username);
+	if(data.username==username){
+		disconnect();
+	}
 	users[data.username] = false;
 });
-
+socket.on('add-success', function(user){
+	$("#add-user").hide();
+	$("#input-box").show();
+	$("#disconnect-button").show();
+	username = user;
+	document.title = username + "- Node JS prototype Application";
+	document.getElementById("username").innerHTML = username;
+});
 window.onunload = function(){
 	socket.emit('dis-connect', {username: username});
 }
@@ -144,14 +172,9 @@ var closeChat = function(user_name){
 var addUser = function() {
 	var user = $("input[name='username']").val();
 	if(user.trim()==""){
-		alertFade("Enter your username")
+		alertFade("Enter your username");
+		return;
 	}
 	alertFade(user);
 	socket.emit('new user', {username: user});
-	$("#add-user").hide();
-	$("#input-box").show();
-	$("#disconnect-button").show();
-	username = user;
-	document.title = username + "- Node JS prototype Application";
-	document.getElementById("username").innerHTML = username;
 }
