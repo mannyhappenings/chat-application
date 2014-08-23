@@ -77,6 +77,8 @@ input[type="text"], input[type="email"], input[type="password"] {
     text-align: center;
 }
 .chat-messages {
+    max-height: 300px;
+    overflow-y: scroll;
     clear: both;
     margin: 5px 0px;
 }

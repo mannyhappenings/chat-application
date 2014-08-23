@@ -1,5 +1,5 @@
 var users = {};
-var socket = io('http://localhost/');
+var socket = io('http://172.16.102.11/');
 var username = '';
 var selectedUser = '';
 socket.on('message', function (data) {
@@ -7,7 +7,7 @@ socket.on('message', function (data) {
 	if(!document.getElementById(data.username)){
 		newChat(data.username);
 	}
-	document.getElementById(data.username).appendChild($('<div>' + data.message+'</div>')[0]);
+	document.getElementById(data.username).appendChild($('<div>' + data.username[0]+": "+data.message+'</div>')[0]);
 });
 socket.on('user-list', function(data){
 	console.log(data);
@@ -20,12 +20,10 @@ socket.on('user-list', function(data){
 });
 function dec2hex(num){
 	var hex = "";
-	function getHexCode(n){
-		if(n<10) return n;
-		return String.fromCharCode(n-10 + 97);
-	}
+    var temp;
 	while(num){
-		hex += getHexCode(num%16);
+        temp = num%16;
+        hex = ((temp<10)? temp: String.fromCharCode(temp+87)) + hex;
 		num = Math.floor(num/16);
 	}
 	return hex;
@@ -131,10 +129,10 @@ function sendMessage(){
 	document.getElementById('message').value = "";
 	document.getElementById(selectedUser).appendChild($('<div style="background-color: rgba(200, 200, 240, 0.4);">' + message+'</div>')[0]);
 	socket.emit('message', {
-								username: username, 
-								message: message, 
-								to: selectedUser
-							});
+				username: username, 
+				message: message, 
+				to: selectedUser
+			});
 }
 
 var check = function(e, el) {
